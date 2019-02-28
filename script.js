@@ -4,6 +4,7 @@ $(document).ready(function () {
         let numberNotChecked = $('input:checkbox:not(":checked")').length;
         let correctAns = 40 - numberNotChecked;
         let bandScore = 4;
+        let zero = "? out of band score"
         let minScore = 11;
         //calculate minScore+++ , bandScore = 4 +.5
             if(12<correctAns){
@@ -35,9 +36,12 @@ $(document).ready(function () {
             } 
             if(38<correctAns){
                 bandScore =  9
-            } 
+            }  
+            if(correctAns<11){
+                bandScore = 0 + zero
+            }
         alert(correctAns +" answers is correct. Your band score is: " + bandScore ); 
-        location.reload();
+        
     });
 
     $('#clear').click(function () { 
