@@ -4,14 +4,30 @@
     <title>Practice IELTS Listening</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
     <script src="script.js"></script>
 </head>
 
 <body>
-    <h1 class="w3-center"> </h1>
-    <h2 class="w3-center"> </h2>
-    <div class="w3-row-padding">
+    <button onclick="goUp()" id="btnGoUp" title="Go to top" style="display: block;"> <span>[Back to top]</span></button>
+    <header style="background-color: bisque; padding: 30px;">
+        <div class="row">
+            <h1 class="text-center">Practice IELTS Listening Test</h1>
+            <div class="row">
+                <div class="container"> 
+                        <select id="opt" name="" onchange="location = this.value"> 
+                            <option value="" selected>Select your practice</option>
+                            <option value="#practiceOne">Practice 1</option>
+                            <option value="practice-2">Practice 2</option> 
+                            <option value="practice">Practice </option> 
+                            <option value="practice">Practice </option> 
+                        </select> 
+                </div>
+            </div>
+        </div> 
+    </header>
+    <div id="practiceOne" class="w3-row-padding">
         <div class="w3-col s8 m4 l5 ">
             <h3>Answer sheet </h3>
             <div class="w3-col s8 l6">
@@ -104,7 +120,7 @@
             </div>
         </div>
         <div class="w3-col s8 m8 l7">
-            <div class="w3-top" style="padding-top:50px">
+            <div class="w3-top">
                 <div>
                     <iframe id="scopeVideo" src="https://www.youtube.com/embed/klXN_cXTMLE" frameborder="0" width="650"
                         height="450" allowfullscreen></iframe>
