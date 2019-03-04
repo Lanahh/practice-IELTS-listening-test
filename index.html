@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery.min.js"></script>
+    <script type='text/javascript' src='config.js'></script>
     <script src="script.js"></script>
 </head>
 
@@ -15,19 +16,23 @@
         <div class="row">
             <h1 class="text-center">Practice IELTS Listening Test</h1>
             <div class="row">
-                <div class="container"> 
-                        <select id="opt" name="" onchange="location = this.value"> 
-                            <option value="" selected>Select your practice</option>
-                            <option value="#practiceOne">Practice 1</option>
-                            <option value="practice-2">Practice 2</option> 
-                            <option value="practice">Practice </option> 
-                            <option value="practice">Practice </option> 
-                        </select> 
+                <div class="container">
+                    <select id="opt" name="" onchange="location = this.value">
+                        <option value="" selected>Select your practice</option>
+                        <option value="#practice">Practice 1</option>
+                        <option value="#practice">Practice 2</option>
+                        <!-- <option value="#practice" >Practice 3</option>  -->
+                        <!-- <option value="#practice">Practice </option>  -->
+                    </select>
+                    <p>
+                        <label for="link">Link your own practice: </label>
+                        <input type="url" name="link" id="link_ytu" placeholder="https://www.youtube.com/watch?v=2hbZCVrf-v0"  minlength="32"> 
+                    </p>
                 </div>
             </div>
-        </div> 
+        </div>
     </header>
-    <div id="practiceOne" class="w3-row-padding">
+    <div id="practice" class="w3-row-padding">
         <div class="w3-col s8 m4 l5 ">
             <h3>Answer sheet </h3>
             <div class="w3-col s8 l6">

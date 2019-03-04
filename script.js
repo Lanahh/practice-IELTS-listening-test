@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#scopeVideo").css("display", "none"); 
+    $("#scopeVideo").css("display", "none");
     $('#btnCal').click(function () {
         let numberNotChecked = $('input:checkbox:not(":checked")').length;
         let correctAns = 40 - numberNotChecked;
@@ -44,13 +44,54 @@ $(document).ready(function () {
 
     });
 
-    $('#clear').click(function () { 
+    $('#clear').click(function () {
         $('input:checkbox').prop('checked', false);;
     });
 
-    $("select").on("change", function() { 
+    //iframe src
+    let uri_src = "https://www.youtube.com/embed/";
+    //user put link, convert it to iframe src  
+
+    $('#link_ytu').keyup(function (e) {
+        if (e.keyCode == 13) {
+            let p = $(this).val();
+            var matches = p.match(/http:\/\/(?:www\.)?youtube.*watch\?v=([a-zA-Z0-9\-_]+)/);
+            if (!matches) {
+                alert('Please, check your link again and folowing its format ');
+            }
+            else {
+                let code = $(this).val().slice($(this).val().lastIndexOf("=") + 1)
+                let url = 'https://www.googleapis.com/youtube/v3/videos?id=' + code + '&key=' + config.API_KEY + '&part=snippet';
+
+                $.get(url, function (response) {
+                    let status = response.pageInfo.totalResults;
+                    if (status) {
+                        $('iframe').attr('src', uri_src + code)
+                        window.location.href = "#practice";
+                        $('#scopeVideo').show();
+                    } else {
+                        alert("Your youtube link is not exists. Please check it again!")
+                    }
+                })
+            }
+        }
+    });
+
+    //author put link code here        
+    //can be array when it become crowded. To avoid repeat code 
+    let code_ytu = [
+        'klXN_cXTMLE', 'Q51QkJjxUD0'
+    ]
+
+    $("select").on("change", function (index) {
+        //value isSelect,youtube will get src=uri_src + code
+        let id = document.getElementById("opt").selectedIndex
+        console.log(uri_src)
+        $('iframe').attr('src', uri_src + code_ytu[id - 1])
         $('#scopeVideo').show();
-     });
+    });
+
+
 });
 
 // When the user clicks on the button, scroll to the top page
